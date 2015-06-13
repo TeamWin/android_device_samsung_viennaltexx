@@ -3,11 +3,11 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/languages_full.mk)
 # The gps config appropriate for this device
 $(call inherit-product, device/common/gps/gps_us_supl.mk)
 
-$(call inherit-product-if-exists, vendor/samsung/mondrianwifiue/lt03wifiue-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/viennaltexx/lt03wifiue-vendor.mk)
 
-DEVICE_PACKAGE_OVERLAYS += device/samsung/mondrianwifiue/overlay
+DEVICE_PACKAGE_OVERLAYS += device/samsung/viennaltexx/overlay
 
-LOCAL_PATH := device/samsung/mondrianwifiue
+LOCAL_PATH := device/samsung/viennaltexx
 ifeq ($(TARGET_PREBUILT_KERNEL),)
 	LOCAL_KERNEL := $(LOCAL_PATH)/kernAl
 else
@@ -20,7 +20,7 @@ PRODUCT_COPY_FILES += \
 
 $(call inherit-product, build/target/product/full.mk)
 
-PRODUCT_NAME := cm_mondrianwifiue
-PRODUCT_DEVICE := mondrianwifiue
+PRODUCT_NAME := cm_viennaltexx
+PRODUCT_DEVICE := viennaltexx
 PRODUCT_BRAND := Samsung
-PRODUCT_MODEL := mondrianwifiue
+PRODUCT_MODEL := viennaltexx

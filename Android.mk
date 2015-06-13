@@ -1,3 +1,3 @@
-ifneq ($(filter mondrianwifiue,$(TARGET_DEVICE)),)
+ifneq ($(filter viennaltexx,$(TARGET_DEVICE)),)
     include $(all-subdir-makefiles)
 endif

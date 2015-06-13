@@ -1,14 +1,14 @@
 USE_CAMERA_STUB := true
 
 # inherit from the proprietary version
--include vendor/samsung/mondrianwifiue/BoardConfigVendor.mk
+-include vendor/samsung/viennaltexx/BoardConfigVendor.mk
 
 TARGET_NO_BOOTLOADER := true
-TARGET_BOOTLOADER_BOARD_NAME := mondrianwifiue
+TARGET_BOOTLOADER_BOARD_NAME := viennaltexx
 
 # Platform
 
-TARGET_BOARD_PLATFORM := msm8660
+TARGET_BOARD_PLATFORM := msm8974
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 
 # Flags
@@ -25,10 +25,10 @@ TARGET_ARCH_VARIANT := armv7-a-neon
 TARGET_CPU_SMP := true
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x3F
+BOARD_KERNEL_CMDLINE := console=null androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 
 BOARD_KERNEL_BASE := 0x00008000
 BOARD_KERNEL_PAGESIZE := 2048
-BOARD_MKBOOTIMG_ARGS := --ramdisk_offset  0x02000000 --dt device/samsung/mondrianwifiue/dtb --tags_offset 0x01e00000
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset  0x02000000 --dt device/samsung/viennaltexx/dtb --tags_offset 0x01e00000
 
 BOARD_BOOTIMAGE_PARTITION_SIZE := 0x00A00000
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 0x08230000
@@ -38,7 +38,7 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 
-TARGET_PREBUILT_KERNEL := device/samsung/mondrianwifiue/kernAl
+TARGET_PREBUILT_KERNEL := device/samsung/viennaltexx/kernAl
 
 #TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 
@@ -49,13 +49,13 @@ BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 
 # TWRP specific build flags
-DEVICE_RESOLUTION := 1200x1920
+DEVICE_RESOLUTION := 2560x1600
 RECOVERY_SDCARD_ON_DATA := true
 BOARD_HAS_NO_REAL_SDCARD := true
 RECOVERY_GRAPHICS_USE_LINELENGTH := true
 TARGET_RECOVERY_PIXEL_FORMAT := "RGBX_8888"
-#TW_BRIGHTNESS_PATH := /sys/devices/qcom,mdss_dsi_samsung_octa_1080p_cmd.71/lcd/panel/panel/brightness
-#TW_MAX_BRIGHTNESS := 255
+TW_BRIGHTNESS_PATH := "/sys/devices/mdp.0/qcom\x2cmdss_fb_primary.171/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 255
 TW_NO_REBOOT_BOOTLOADER := true
 TW_HAS_DOWNLOAD_MODE := true
 #TW_INCLUDE_CRYPTO := true
@@ -68,3 +68,4 @@ TW_HAS_DOWNLOAD_MODE := true
 #TW_CRYPTO_KEY_LOC := "footer"
 TW_NO_SCREEN_TIMEOUT := true
 TW_INCLUDE_FB2PNG := true
+TARGET_RECOVERY_QCOM_RTC_FIX := true
